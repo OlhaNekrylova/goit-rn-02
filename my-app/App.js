@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from "react";
 
-const backImage = require('./assets/favicon.png');
+const backImage = require('./assets/images/Wallpaper.jpg');
 
 export default function App() {
   const [activeScreen, setActiveScreen] = useState(0);
