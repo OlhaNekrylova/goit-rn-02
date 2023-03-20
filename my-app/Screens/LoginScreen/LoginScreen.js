@@ -18,7 +18,10 @@ const LoginScreen = ({changeScreen}) => {
     const passwordShow =()=> alert(`Your password is: ${password}`);
 
     return (
-        <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={ styles.containerKeyB } >
+        <KeyboardAvoidingView 
+            behavior={Platform.OS == "ios" ? "padding" : "height"} 
+            // style={ styles.containerKeyB } 
+        >
             <View style={styles.container}>
                 <View style={styles.form}>
                     <Text style={ styles.inputTitle }>Login</Text>
