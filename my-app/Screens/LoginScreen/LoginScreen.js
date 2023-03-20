@@ -20,7 +20,7 @@ const LoginScreen = ({changeScreen}) => {
     return (
         <KeyboardAvoidingView 
             behavior={Platform.OS == "ios" ? "padding" : "height"} 
-            // style={ styles.containerKeyB } 
+            // style={ styles.container } 
         >
             <View style={styles.container}>
                 <View style={styles.form}>
@@ -58,7 +58,7 @@ const LoginScreen = ({changeScreen}) => {
 
 const styles = StyleSheet.create({
     container: {
-        position: 'relative',
+        // position: 'relative',
         flex: 1,
         alignItems: 'center',
     }, 
@@ -80,10 +80,8 @@ const styles = StyleSheet.create({
     //     height: 25,
     // },
     form: {
-        // marginHorizontal: 30,
         width: 375,
         height: 489,
-        // borderRadius: 25 25 0 0,
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25,
         borderBottomLeftRadius: 0,

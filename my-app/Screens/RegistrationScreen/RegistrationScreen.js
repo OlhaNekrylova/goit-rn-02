@@ -25,7 +25,7 @@ const RegistrationScreen = ({changeScreen}) => {
     return (
         <KeyboardAvoidingView 
             behavior={Platform.OS == "ios" ? "padding" : "height"} 
-            // style={ styles.containerKeyB } 
+            // style={ styles.container } 
             >
             <View style={ styles.container }>
                 <View style={ styles.pfotoContainer }>
@@ -76,12 +76,12 @@ const RegistrationScreen = ({changeScreen}) => {
 
 const styles = StyleSheet.create({
     container: {
-        position: 'relative',
+        // position: 'relative',
         flex: 1,
         alignItems: 'center',
     }, 
     pfotoContainer: {
-        position: 'absolute',
+        // position: 'absolute',
         left: 128,
         top: 203,
         width: 120,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#F6F6F6",
     },
     addButton: {
-        position: 'absolute',
+        // position: 'absolute',
         left: 235,
         top: 284,
         zIndex: 1,
@@ -98,10 +98,8 @@ const styles = StyleSheet.create({
         height: 25,
     },
     form: {
-        // marginHorizontal: 30,
         width: 375,
         height: 549,
-        // borderRadius: 25 25 0 0,
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25,
         borderBottomLeftRadius: 0,
