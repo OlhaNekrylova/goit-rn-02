@@ -1,6 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, ImageBackground, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, ImageBackground, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import React, { useState } from "react";
+
+import RegistrationScreen from "./Screens/RegistrationScreen";
+import LoginScreen from "./Screens/LoginScreen";
 
 const backImage = require('./assets/images/Wallpaper.jpg');
 
