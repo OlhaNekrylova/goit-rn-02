@@ -15,30 +15,29 @@ const LoginScreen = ({changeScreen}) => {
         console.log(`Email: ${ mail }, Password: ${password}`);
     }
 
-    const passwShow =()=> alert(`Your password is: ${password}`);
+    const passwordShow =()=> alert(`Your password is: ${password}`);
 
     return (
         <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={ styles.containerKeyB } >
             <View style={styles.container}>
-                {/* <View style={styles.form}> */}
+                <View style={styles.form}>
                     <Text style={ styles.inputTitle }>Login</Text>
                     <TextInput 
-                    style={ styles.input }
-                    placeholder="Email address"
-                    inputMode="email"
-                    value={ mail } 
-                    onChangeText={handleMail}
+                        style={ styles.input }
+                        placeholder="Email address"
+                        inputMode="email"
+                        value={ mail } 
+                        onChangeText={handleMail}
                     />
                     <TextInput 
-                    style={ styles.input }
-                    placeholder="Password" 
-                    secureTextEntry={true} 
-                    value={ password }
-                    onChangeText={handlePassword}
+                        style={ styles.input }
+                        placeholder="Password" 
+                        secureTextEntry={true} 
+                        value={ password }
+                        onChangeText={handlePassword}
                     />
-                {/* </View> */}
-                <TouchableOpacity style={ styles.passwShow } activeOpacity={0.5} onPress={passwShow}>
-                    <Text style={ styles.passwShowText }>Show</Text>
+                <TouchableOpacity style={ styles.pasShow } activeOpacity={0.5} onPress={passwordShow}>
+                    <Text style={ styles.passwordShowText }>Show</Text>
                 </TouchableOpacity>  
 
                 <TouchableOpacity style={ styles.registerButton } activeOpacity={0.5} onPress={register}>
@@ -48,6 +47,7 @@ const LoginScreen = ({changeScreen}) => {
                 <TouchableOpacity style={ styles.loginLink } activeOpacity={0.5}  onPress={()=>changeScreen(1)} >
                     <Text style={ styles.loginLinkText }>Don't have an account? Register</Text>
                 </TouchableOpacity> 
+                </View>
             </View>
         </KeyboardAvoidingView>
     )
@@ -55,25 +55,82 @@ const LoginScreen = ({changeScreen}) => {
 
 const styles = StyleSheet.create({
     container: {
+        position: relative,
         flex: 1,
         alignItems: 'center',
     }, 
-    // form: {
-    //     marginHorizontal: 30,
+    // pfotoContainer: {
+    //     position: absolute,
+    //     left: 128,
+    //     top: 203,
+    //     width: 120,
+    //     height: 120,
+    //     borderRadius: 16,
+    //     backgroundColor: "#F6F6F6",
     // },
-    inputTitle: {
-        color: "#f0f8ff",
-        marginBottom: 10,
-        fontSize: 18,
+    // addButton: {
+    //     position: absolute,
+    //     left: 235,
+    //     top: 284,
+    //     zIndex: 1,
+    //     width: 25,
+    //     height: 25,
+    // },
+    form: {
+        // marginHorizontal: 30,
+        width: 375,
+        height: 489,
+        // borderRadius: 25 25 0 0,
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25,
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
+        backgroundColor: "#ffffff",
+    },
+    title: {
+        color: "#212121",
+        marginTop: 32,
+        marginBottom: 32,
+        fontSize: 30,
+        lineHeight: 35.16,
     },
     input: {
+        width: 343,
+        height: 50,
+        marginBottom: 16,
         borderWidth: 1,
-        borderColor: "#f0f8ff",
-        height: 30,
-        borderRadius: 6,
-    
-        color: "#f0f8ff",
+        borderRadius: 8,
+        borderColor: "#E8E8E8",
+        color: "#BDBDBD",
+        backgroundColor: "#F6F6F6",
+        fontSize: 16,
+        lineHeight: 19,
     },
+    pasShow: {
+        fontSize: 16,
+        lineHeight: 19,
+        color: "#1B4371",
+    },
+    registerButton: {
+        width: 343,
+        height: 51,
+        marginTop: 43,
+        marginBottom: 16,
+        borderRadius: 100,
+        color: "#ffffff",
+        backgroundColor: "#FF6C00",
+        // boxShadow: 0 4 4 rgba(0, 0, 0, 0.25),
+        fontSize: 16,
+        lineHeight: 19,
+        
+    },
+    loginLinkText: {
+        marginBottom: 144,
+        color: "#1B4371",
+        fontSize: 16,
+        lineHeight: 19,
+    }
+
     // btn: {
     //     backgroundColor: "#ffb6c1",
     //     height: 40,
