@@ -62,7 +62,7 @@ const RegistrationScreen = ({changeScreen}) => {
                 </TouchableOpacity>  
 
                 <TouchableOpacity style={ styles.registerButton } activeOpacity={0.5} onPress={register}>
-                    <Text style={ styles.registerButtonText }>Register</Text>
+                    <Text style={ styles.registerText }>Register</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={ styles.loginLink } activeOpacity={0.5} onPress={() => changeScreen(0) }>
@@ -76,12 +76,12 @@ const RegistrationScreen = ({changeScreen}) => {
 
 const styles = StyleSheet.create({
     container: {
-        position: relative,
+        position: 'relative',
         flex: 1,
         alignItems: 'center',
     }, 
     pfotoContainer: {
-        position: absolute,
+        position: 'absolute',
         left: 128,
         top: 203,
         width: 120,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#F6F6F6",
     },
     addButton: {
-        position: absolute,
+        position: 'absolute',
         left: 235,
         top: 284,
         zIndex: 1,
@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
         lineHeight: 35.16,
     },
     input: {
+        position: 'relative',
         width: 343,
         height: 50,
         marginBottom: 16,
@@ -128,11 +129,16 @@ const styles = StyleSheet.create({
         lineHeight: 19,
     },
     pasShow: {
+        position: 'absolute',
+        top: -34,
+        left: 130,
         fontSize: 16,
         lineHeight: 19,
         color: "#1B4371",
     },
     registerButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
         width: 343,
         height: 51,
         marginTop: 43,

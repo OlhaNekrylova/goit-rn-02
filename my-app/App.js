@@ -15,8 +15,8 @@ export default function App() {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={styles.container}>
       <ImageBackground source={backImage} style={styles.backImage} >
-        { activeScreen === 0 ? <LoginScreen changeScrenn={ changeScreen }/> :
-          <RegistrationScreen changeScrenn={ changeScreen }/>}
+        { activeScreen === 0 ? <LoginScreen changeScreen={ changeScreen }/> :
+          <RegistrationScreen changeScreen={ changeScreen }/>}
       </ImageBackground>
       <StatusBar style="auto" />  
     </View>

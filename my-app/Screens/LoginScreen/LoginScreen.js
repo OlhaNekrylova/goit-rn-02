@@ -44,7 +44,7 @@ const LoginScreen = ({changeScreen}) => {
                 </TouchableOpacity>  
 
                 <TouchableOpacity style={ styles.registerButton } activeOpacity={0.5} onPress={register}>
-                    <Text style={ styles.registerButtonText }>Login</Text>
+                    <Text style={ styles.registerText }>Login</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={ styles.loginLink } activeOpacity={0.5}  onPress={()=>changeScreen(1)} >
@@ -58,7 +58,7 @@ const LoginScreen = ({changeScreen}) => {
 
 const styles = StyleSheet.create({
     container: {
-        position: relative,
+        position: 'relative',
         flex: 1,
         alignItems: 'center',
     }, 
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
         lineHeight: 35.16,
     },
     input: {
+        position: 'relative',
         width: 343,
         height: 50,
         marginBottom: 16,
@@ -110,11 +111,16 @@ const styles = StyleSheet.create({
         lineHeight: 19,
     },
     pasShow: {
+        position: 'absolute',
+        top: -34,
+        left: 130,
         fontSize: 16,
         lineHeight: 19,
         color: "#1B4371",
     },
     registerButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
         width: 343,
         height: 51,
         marginTop: 43,
