@@ -16,16 +16,15 @@ const LoginScreen = () => {
     setState(initialState);
     };
 
-    const passwordShow =()=> alert(`Your password is: ${password}`);
+    const passwordShow =()=> alert(`Your password is: ${state.password}`);
 
     return (
         <KeyboardAvoidingView 
             behavior={Platform.OS === "ios" ? "padding" : "height"} 
             // style={ styles.container } 
         >
-            <View style={styles.container}>
-                <View style={styles.form}>
-                    <Text style={ styles.inputTitle }>Login</Text>
+            <View style={styles.form}>
+                    <Text style={ styles.title }>Login</Text>
                     <TextInput 
                         style={ styles.input }
                         placeholder="Email address"
@@ -43,7 +42,7 @@ const LoginScreen = () => {
                             setState((prevState) => ({ ...prevState, password: value }))}
                     />
                 <TouchableOpacity style={ styles.pasShow } activeOpacity={0.5} onPress={passwordShow}>
-                    <Text style={ styles.passwordShowText }>Show</Text>
+                    <Text style={ styles.passwShowText }>Show</Text>
                 </TouchableOpacity>  
 
                 <TouchableOpacity style={ styles.registerButton } activeOpacity={0.5} onPress={submitForm}>
@@ -54,37 +53,15 @@ const LoginScreen = () => {
                     <Text style={ styles.loginLinkText }>Don't have an account? Register</Text>
                 </TouchableOpacity> 
                 </View>
-            </View>
         </KeyboardAvoidingView>
     )
 };
 
 const styles = StyleSheet.create({
-    container: {
-        // position: 'relative',
-        flex: 1,
-        alignItems: 'center',
-    }, 
-    // pfotoContainer: {
-    //     position: absolute,
-    //     left: 128,
-    //     top: 203,
-    //     width: 120,
-    //     height: 120,
-    //     borderRadius: 16,
-    //     backgroundColor: "#F6F6F6",
-    // },
-    // addButton: {
-    //     position: absolute,
-    //     left: 235,
-    //     top: 284,
-    //     zIndex: 1,
-    //     width: 25,
-    //     height: 25,
-    // },
     form: {
-        width: 375,
-        height: 489,
+        alignItems: "center",
+        width: 360,
+        height: 456,
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25,
         borderBottomLeftRadius: 0,
@@ -94,7 +71,7 @@ const styles = StyleSheet.create({
     title: {
         color: "#212121",
         marginTop: 32,
-        marginBottom: 32,
+        marginBottom: 16,
         fontSize: 30,
         lineHeight: 35.16,
     },
@@ -102,7 +79,7 @@ const styles = StyleSheet.create({
         position: 'relative',
         width: 343,
         height: 50,
-        marginBottom: 16,
+        marginTop: 16,
         borderWidth: 1,
         borderRadius: 8,
         borderColor: "#E8E8E8",
@@ -110,50 +87,45 @@ const styles = StyleSheet.create({
         backgroundColor: "#F6F6F6",
         fontSize: 16,
         lineHeight: 19,
+        textAlign: "center",
     },
     pasShow: {
-        position: 'absolute',
+        // position: 'absolute',
         top: -34,
         left: 130,
+    },
+    passwShowText: {
+        color: "#1B4371",
         fontSize: 16,
         lineHeight: 19,
-        color: "#1B4371",
-    },
+    }, 
     registerButton: {
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: "center",
         width: 343,
         height: 51,
         marginTop: 43,
         marginBottom: 16,
         borderRadius: 100,
-        color: "#ffffff",
         backgroundColor: "#FF6C00",
-        // boxShadow: 0 4 4 rgba(0, 0, 0, 0.25),
+        shadowColor: "#000000",
+        shadowOffset: {width: -2, height: 4},
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+    },
+    registerText: {
+        color: "#ffffff",
         fontSize: 16,
         lineHeight: 19,
-        
+    },
+    loginLink: {
+        // marginBottom: 45,
     },
     loginLinkText: {
-        marginBottom: 144,
         color: "#1B4371",
         fontSize: 16,
         lineHeight: 19,
     }
-
-    // btn: {
-    //     backgroundColor: "#ffb6c1",
-    //     height: 40,
-    //     borderRadius: 6,
-    //     marginTop: 40,
-    //     justifyContent: "center",
-    //     alignItems: "center",
-    //     marginHorizontal: 20,
-    // },
-    // btnTitle: {
-    //     color: "#f0f8ff",
-    //     fontSize: 18,
-    // },
 });
 
 export default LoginScreen;

@@ -1,19 +1,25 @@
 // import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ImageBackground, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import React, { useState } from "react";
 
-import RegistrationScreen from './Screens/RegistrationScreen';
-// import LoginScreen from './Screens/LoginScreen';
+import RegistrationScreen from "./Screens/RegistrationScreen/RegistrationScreen";
+import LoginScreen from "./Screens/LoginScreen/LoginScreen";
 
-const imageBackground = require('./assets/images/Wallpaper.jpg');
+const imageBackground = require('./assets/images/Photo-image.jpg');
 
 export default function App() {
+  
+  const keyboardHide = () => {
+    Keyboard.dismiss();
+  };
+
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    <TouchableWithoutFeedback onPress={keyboardHide}>
     <View style={styles.container}>
       <ImageBackground source={imageBackground} style={styles.imageBackground} >
         <RegistrationScreen />
-         {/* <LoginScreen />  */}
+        {/* <LoginScreen />  */}
       </ImageBackground>
       {/* <StatusBar style="auto" />   */}
     </View>
