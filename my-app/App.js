@@ -12,7 +12,7 @@ export default function App() {
   const changeScreenFunk = (value) => { setActiveScreen(value) }
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     <View style={styles.container}>
       <ImageBackground source={backImage} style={styles.backImage} >
         { activeScreen === 0 ? <LoginScreen changeScreen={ changeScreenFunk }/> :

@@ -47,7 +47,7 @@ const LoginScreen = ({changeScreen}) => {
                     <Text style={ styles.registerText }>Login</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={ styles.loginLink } activeOpacity={0.5}  onPress={()=>changeScreen(1)} >
+                <TouchableOpacity style={ styles.loginLink } activeOpacity={0.5}  onPress={()=>changeScreen(0)} >
                     <Text style={ styles.loginLinkText }>Don't have an account? Register</Text>
                 </TouchableOpacity> 
                 </View>

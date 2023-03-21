@@ -65,7 +65,7 @@ const RegistrationScreen = ({changeScreen}) => {
                     <Text style={ styles.registerText }>Register</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={ styles.loginLink } activeOpacity={0.5} onPress={() => changeScreen(0) }>
+                <TouchableOpacity style={ styles.loginLink } activeOpacity={0.5} onPress={() => changeScreen(1) }>
                     <Text style={ styles.loginLinkText }>Have you already an account? Log in</Text>
                 </TouchableOpacity> 
                 </View>
