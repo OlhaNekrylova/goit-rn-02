@@ -1,25 +1,26 @@
-import { StyleSheet, Text, ImageBackground,
+import { StyleSheet, Text, 
     View, TouchableOpacity, TextInput, KeyboardAvoidingView, 
     Platform } from "react-native";
 import React, { useState } from "react";
 
-const LoginScreen = ({changeScreen}) => {
-    const [mail, setMail] =useState('');
-    const [password, setPassword] =useState('');
+const initialState = {
+    email: "",
+    password: "",
+};
 
-    const handleMail =(text)=>{ setMail(text)};
-    const handlePassword =(text)=>{ setPassword(text)};
+const LoginScreen = () => {
+    const [state, setState] = useState(initialState);
 
-    const register =()=> {
-        if (!mail || !password) { alert("Enter all data please!!!"); return }
-        console.log(`Email: ${ mail }, Password: ${password}`);
-    }
+    const submitForm = () => {
+    console.log(state);
+    setState(initialState);
+    };
 
     const passwordShow =()=> alert(`Your password is: ${password}`);
 
     return (
         <KeyboardAvoidingView 
-            behavior={Platform.OS == "ios" ? "padding" : "height"} 
+            behavior={Platform.OS === "ios" ? "padding" : "height"} 
             // style={ styles.container } 
         >
             <View style={styles.container}>
@@ -29,25 +30,27 @@ const LoginScreen = ({changeScreen}) => {
                         style={ styles.input }
                         placeholder="Email address"
                         inputMode="email"
-                        value={ mail } 
-                        onChangeText={handleMail}
+                        value={state.email} 
+                        onChangeText={(value) =>
+                            setState((prevState) => ({ ...prevState, email: value }))}
                     />
                     <TextInput 
                         style={ styles.input }
                         placeholder="Password" 
                         secureTextEntry={true} 
-                        value={ password }
-                        onChangeText={handlePassword}
+                        value={state.password}
+                        onChangeText={(value) =>
+                            setState((prevState) => ({ ...prevState, password: value }))}
                     />
                 <TouchableOpacity style={ styles.pasShow } activeOpacity={0.5} onPress={passwordShow}>
                     <Text style={ styles.passwordShowText }>Show</Text>
                 </TouchableOpacity>  
 
-                <TouchableOpacity style={ styles.registerButton } activeOpacity={0.5} onPress={register}>
+                <TouchableOpacity style={ styles.registerButton } activeOpacity={0.5} onPress={submitForm}>
                     <Text style={ styles.registerText }>Login</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={ styles.loginLink } activeOpacity={0.5}  onPress={()=>changeScreen(0)} >
+                <TouchableOpacity style={ styles.loginLink } activeOpacity={0.5} >
                     <Text style={ styles.loginLinkText }>Don't have an account? Register</Text>
                 </TouchableOpacity> 
                 </View>

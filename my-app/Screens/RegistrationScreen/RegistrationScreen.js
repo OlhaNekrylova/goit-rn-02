@@ -5,20 +5,20 @@ import React, { useState } from "react";
 
 const buttonImg = require('../../assets/images/add.png');
 
-const RegistrationScreen = ({changeScreen}) => {
+const initialState = {
+    login: "",
+    email: "",
+    password: "",
+};
 
-    const [login, setLogin] =useState('');
-    const [mail, setMail] =useState('');
-    const [password, setPassword] =useState('');
+const RegistrationScreen = () => {
 
-    const handleLogin = (text) => {setLogin(text)};
-    const handleMail = (text) => {setMail(text)};
-    const handlePassword = (text) => {setPassword(text)};
+    const [state, setState] = useState(initialState);
 
-    const register =()=> {
-        if (!login || !mail || !password) { alert("Enter all data please!!!"); return }
-        console.log(`Login: ${login}, Email: ${ mail }, Password: ${password}`)
-    }
+    const submitForm = () => {
+        console.log(state);
+        setState(initialState);
+    };
 
     const passwordShow =()=> alert(`Your password is: ${password}`);
 
@@ -39,33 +39,36 @@ const RegistrationScreen = ({changeScreen}) => {
                     style={ styles.input } 
                     placeholder="Login"
                     inputMode="text"
-                    value={ login }
-                    onChangeText={handleLogin}
+                    value={ state.login }
+                    onChangeText={(value) =>
+                        setState((prevState) => ({ ...prevState, login: value }))}
                     />
                     <TextInput 
                     style={ styles.input } 
                     placeholder="Email address" 
                     inputMode="email" 
-                    value={ mail } 
-                    onChangeText={handleMail}
+                    value={state.email} 
+                    onChangeText={(value) =>
+                        setState((prevState) => ({ ...prevState, email: value }))}
                     />
                     <TextInput 
                     style={ styles.input } 
                     placeholder="Password" 
                     secureTextEntry={true} 
-                    value={ password }  
-                    onChangeText={handlePassword}
+                    value={state.password}  
+                    onChangeText={(value) =>
+                        setState((prevState) => ({ ...prevState, password: value }))}
                     />
         
                 <TouchableOpacity style={ styles.pasShow } activeOpacity={0.5} onPress={passwordShow}>
                     <Text style={ styles.passwShowText }>Show</Text>
                 </TouchableOpacity>  
 
-                <TouchableOpacity style={ styles.registerButton } activeOpacity={0.5} onPress={register}>
+                <TouchableOpacity style={ styles.registerButton } activeOpacity={0.5} onPress={submitForm}>
                     <Text style={ styles.registerText }>Register</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={ styles.loginLink } activeOpacity={0.5} onPress={() => changeScreen(1) }>
+                <TouchableOpacity style={ styles.loginLink } activeOpacity={0.5}>
                     <Text style={ styles.loginLinkText }>Have you already an account? Log in</Text>
                 </TouchableOpacity> 
                 </View>

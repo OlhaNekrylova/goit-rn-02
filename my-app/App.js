@@ -1,24 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ImageBackground, Keyboard, TouchableWithoutFeedback } from 'react-native';
-import React, { useState } from "react";
 
 import RegistrationScreen from './Screens/RegistrationScreen';
-import LoginScreen from './Screens/LoginScreen';
+// import LoginScreen from './Screens/LoginScreen';
 
-const backImage = require('./assets/images/Wallpaper.jpg');
+const imageBackground = require('./assets/images/Wallpaper.jpg');
 
 export default function App() {
-  const [activeScreen, setActiveScreen] = useState(0);
-  const changeScreenFunk = (value) => { setActiveScreen(value) }
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     <View style={styles.container}>
-      <ImageBackground source={backImage} style={styles.backImage} >
-        { activeScreen === 0 ? <LoginScreen changeScreen={ changeScreenFunk }/> :
-          <RegistrationScreen changeScreen={ changeScreenFunk }/>}
+      <ImageBackground source={imageBackground} style={styles.imageBackground} >
+        <RegistrationScreen />
+         {/* <LoginScreen />  */}
       </ImageBackground>
-      <StatusBar style="auto" />  
+      {/* <StatusBar style="auto" />   */}
     </View>
     </TouchableWithoutFeedback>
   );
@@ -27,11 +24,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    backgroundColor: "#fff",
   }, 
-  backImage: {
+  imageBackground: {
     flex: 1,
-    justifyContent: 'flex-end',
-    width: '100%'
+    resizeMode: "cover",
+    justifyContent: "flex-end",
   },
 });
